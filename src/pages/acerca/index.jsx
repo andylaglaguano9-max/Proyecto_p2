@@ -1,3 +1,4 @@
+import { Leaf, Monitor } from 'lucide-react';
 import styles from './acerca.module.css';
 
 /**
@@ -13,7 +14,9 @@ const Acerca = () => {
 
       <div className={styles.content}>
         <div className={styles.card}>
-          <div className={styles.icon}>🌱</div>
+          <div className={styles.icon}>
+            <Leaf size={48} color="var(--primary-color)" />
+          </div>
           <h2>Nuestra Misión</h2>
           <p>
             Proveer una herramienta accesible e intuitiva para concientizar sobre el impacto ambiental, 
@@ -22,7 +25,9 @@ const Acerca = () => {
         </div>
 
         <div className={styles.card}>
-          <div className={styles.icon}>💻</div>
+          <div className={styles.icon}>
+            <Monitor size={48} color="var(--primary-color)" />
+          </div>
           <h2>El Proyecto</h2>
           <p>
             EcoMetrics es una Single Page Application (SPA) desarrollada como proyecto académico para la 
@@ -36,7 +41,14 @@ const Acerca = () => {
           <div className={styles.formulaGrid}>
             <div className={styles.formulaBox}>
               <span className={styles.formulaLabel}>Emisiones Totales</span>
-              <code>E_total = (kWh * Factor_Elec) + (Galones * 10.15) + (Gas * 6.0) + (Vuelos * 90.0) + (Desechos * 0.5)</code>
+              <code>
+                E_total = <br />
+                &nbsp;&nbsp;(kWh * Factor_Elec) + <br />
+                &nbsp;&nbsp;(Galones * 10.15) + <br />
+                &nbsp;&nbsp;(Gas * 6.0) + <br />
+                &nbsp;&nbsp;(Vuelos * 90.0) + <br />
+                &nbsp;&nbsp;(Desechos * 0.5)
+              </code>
             </div>
             <div className={styles.formulaBox}>
               <span className={styles.formulaLabel}>Compensación</span>
