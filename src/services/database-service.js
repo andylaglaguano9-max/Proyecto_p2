@@ -1,6 +1,6 @@
 /**
  * Servicio de Base de Datos (Estudiante B)
- * Modificado para conectarse al servidor Backend local (Node + Express + pgAdmin)
+ * Modificado para conectarse al servidor Backend local (Node + Express + MySQL)
  */
 import { getCurrentUser } from './auth-service';
 

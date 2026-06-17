@@ -27,7 +27,7 @@ const Equipo = () => {
           </div>
           <h2>Esteban Larco</h2>
           <div className={styles.badge}>Backend & Datos</div>
-          <p className={styles.description}>Arquitecto de bases de datos y lógica de servidor. Responsable de la integración con PostgreSQL y despliegue del API.</p>
+          <p className={styles.description}>Arquitecto de bases de datos y lógica de servidor. Responsable de la integración con MySQL y despliegue del API.</p>
         </div>
       </div>
     </div>
