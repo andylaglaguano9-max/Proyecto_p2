@@ -1,4 +1,6 @@
 import styles from './equipo.module.css';
+import imgAndy from '../../assets/Laglaguano.png';
+import imgLarco from '../../assets/Larco.jpeg';
 
 /**
  * Página Equipo (Estudiante A)
@@ -14,7 +16,7 @@ const Equipo = () => {
       <div className={styles.grid}>
         <div className={styles.card}>
           <div className={styles.avatarWrapper}>
-            <img src="/andy.jpg" alt="Andy Laglaguano" className={styles.avatarImage} onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='flex'}} />
+            <img src={imgAndy} alt="Andy Laglaguano" className={styles.avatarImage} onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='flex'}} />
             <div className={styles.avatar} style={{display: 'none'}}>AL</div>
           </div>
           <h2>Andy Laglaguano</h2>
@@ -24,7 +26,7 @@ const Equipo = () => {
         
         <div className={styles.card}>
           <div className={styles.avatarWrapper}>
-            <img src="/larco.jpg" alt="Esteban Larco" className={styles.avatarImage} onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='flex'}} />
+            <img src={imgLarco} alt="Esteban Larco" className={styles.avatarImage} onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='flex'}} />
             <div className={styles.avatar} style={{display: 'none'}}>EL</div>
           </div>
           <h2>Esteban Larco</h2>
