@@ -3,10 +3,14 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   color: var(--text-color);
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   text-align: center;
-  margin-top: auto;
-  border-top: var(--glass-border);
+  margin: 2rem auto 1rem auto;
+  border: var(--glass-border);
+  border-radius: 40px;
+  width: 95%;
+  max-width: 1400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .container {
@@ -16,7 +20,8 @@
 }
 
 .subtext {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+  font-size: 0.9rem;
+  color: var(--text-light);
   margin-top: 0.5rem;
+  font-weight: 500;
 }
