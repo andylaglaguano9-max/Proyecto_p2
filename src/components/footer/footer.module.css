@@ -1,0 +1,19 @@
+.footer {
+  background-color: var(--text-primary);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.subtext {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
