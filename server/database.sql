@@ -1,6 +1,5 @@
--- Ejecuta esto en tu cliente de MySQL (ej. phpMyAdmin o MySQL Workbench)
-
--- 1. Crear tabla de usuarios
+-- Tabla: users
+-- Propósito: Almacena credenciales de acceso de los usuarios
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -8,7 +7,8 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 2. Crear tabla de cálculos (ahora con user_id para enlazar cada cálculo a un usuario)
+-- Tabla: calculations
+-- Propósito: Registra el historial de mediciones de huella de carbono por usuario
 CREATE TABLE IF NOT EXISTS calculations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
