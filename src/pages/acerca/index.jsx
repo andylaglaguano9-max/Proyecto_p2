@@ -1,4 +1,4 @@
-import { Leaf, Monitor } from 'lucide-react';
+import { Leaf, Monitor, Database } from 'lucide-react';
 import styles from './acerca.module.css';
 
 /**
@@ -31,7 +31,18 @@ const Acerca = () => {
           <h2>El Proyecto</h2>
           <p>
             EcoMetrics es una Single Page Application (SPA) desarrollada como proyecto académico para la 
-            asignatura de Desarrollo Web de 6to Nivel en Tecnologías de la Información.
+            asignatura de Desarrollo Web de 6to Nivel.
+          </p>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.icon}>
+            <Database size={48} color="var(--primary-color)" />
+          </div>
+          <h2>Conexión Real</h2>
+          <p>
+            Implementamos conexión directa a bases de datos MySQL y consumo de APIs de Intensidad de Carbono (UK) 
+            en tiempo real para realizar cálculos ultra precisos.
           </p>
         </div>
 
