@@ -1,8 +1,8 @@
--- Ejecuta esto en el Query Tool de tu pgAdmin 4
+-- Ejecuta esto en tu cliente de MySQL (ej. phpMyAdmin o MySQL Workbench)
 
 -- 1. Crear tabla de usuarios
 CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -10,14 +10,15 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- 2. Crear tabla de cálculos (ahora con user_id para enlazar cada cálculo a un usuario)
 CREATE TABLE IF NOT EXISTS calculations (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id),
-    kwh NUMERIC NOT NULL,
-    gallons NUMERIC NOT NULL,
-    gas NUMERIC DEFAULT 0,
-    waste NUMERIC DEFAULT 0,
-    flights NUMERIC DEFAULT 0,
-    total_emissions NUMERIC NOT NULL,
-    trees_needed INTEGER NOT NULL,
-    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    kwh DECIMAL(10,2) NOT NULL,
+    gallons DECIMAL(10,2) NOT NULL,
+    gas DECIMAL(10,2) DEFAULT 0,
+    waste DECIMAL(10,2) DEFAULT 0,
+    flights DECIMAL(10,2) DEFAULT 0,
+    total_emissions DECIMAL(10,2) NOT NULL,
+    trees_needed INT NOT NULL,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 );
