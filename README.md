@@ -1,16 +1,34 @@
-# React + Vite
+# Proyecto P2: Calculadora de Huella de Carbono
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto de Desarrollo Web (Segundo Parcial) para calcular la huella de carbono mensual.
 
-Currently, two official plugins are available:
+## Integrantes y roles
+- Andy Laglaguano: Desarrollo del Frontend (React, Vite, diseño de interfaz) y conexión con la API externa.
+- Esteban Larco: Desarrollo del Backend (Node.js, Express), configuración de rutas y Base de datos (MySQL).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologías usadas
+- Frontend: React con Vite
+- Backend: Node.js y Express
+- Base de datos: MySQL usando XAMPP
 
-## React Compiler
+## Instrucciones para correr el proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Instalar las dependencias del frontend:
+   `npm install`
+2. Instalar las dependencias del backend:
+   Entrar a la carpeta `/server` y ejecutar `npm install`
 
-## Expanding the ESLint configuration
+## Configuración de Base de datos
+1. Prender MySQL en XAMPP.
+2. Ir a phpMyAdmin y crear una base de datos llamada `ecometrics`.
+3. Copiar el código del archivo `server/database.sql` y ejecutarlo en la pestaña de SQL para crear las tablas.
+4. Renombrar el archivo `server/.env.example` a `server/.env`. Si tu MySQL tiene contraseña, ponla ahi.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Levantar los servidores
+Se necesitan abrir dos terminales:
+
+- Terminal 1 (Backend):
+  Entrar a la carpeta `/server` y ejecutar `npm start`
+  
+- Terminal 2 (Frontend):
+  En la raíz del proyecto, ejecutar `npm run dev` y abrir el link local.

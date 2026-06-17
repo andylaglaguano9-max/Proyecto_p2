@@ -5,7 +5,7 @@ import { guardarCalculo, obtenerHistorial } from './database-service';
  * Realiza peticiones Fetch a una API externa.
  */
 
-// URL simulada de API externa de emisiones eléctricas
+// URL de API real, pública y gratuita de intensidad de carbono (Carbon Intensity API)
 const API_URL = 'https://api.carbonintensity.org.uk/intensity'; 
 
 // Factor por galón fijo según el requerimiento
@@ -27,20 +27,20 @@ const getElectricIntensityFactor = async () => {
 export const calculateEmissions = async (inputs) => {
     const { kwh, gallons, gas = 0, waste = 0, flights = 0 } = inputs;
     
-    // Obtener factor eléctrico (o usar fallback)
+    // Obtención del factor eléctrico o aplicación del valor por defecto en caso de fallo
     const factorElec = await getElectricIntensityFactor();
     
-    // Matemática:
+    // Cálculos matemáticos de las emisiones correspondientes a cada categoría
     const emisionesElec = parseFloat(kwh) * factorElec;
     const emisionesCombustible = parseFloat(gallons) * EMISSION_FACTOR_GALLON;
     const emisionesGas = parseFloat(gas) * 2.1;
     const emisionesWaste = parseFloat(waste) * 0.5;
     const emisionesFlights = parseFloat(flights) * 90;
     
-    // Total CO2
+    // Suma total de las emisiones de CO2 generadas
     const totalEmissions = emisionesElec + emisionesCombustible + emisionesGas + emisionesWaste + emisionesFlights;
     
-    // Algoritmo Numérico de Mitigación:
+    // Aplicación del algoritmo numérico para la determinación de árboles necesarios de mitigación
     const treesNeeded = Math.ceil(totalEmissions / 22);
 
     const record = {

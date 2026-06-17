@@ -1,3 +1,4 @@
+/* Estilos del contador principal de la aplicación */
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -17,6 +18,7 @@
   }
 }
 
+/* Contenedor central de presentación principal */
 .hero {
   position: relative;
 
@@ -56,6 +58,7 @@
   }
 }
 
+/* Estilos de alineación del panel central */
 #center {
   display: flex;
   flex-direction: column;
@@ -70,6 +73,7 @@
   }
 }
 
+/* Estilos de la sección de próximos pasos */
 #next-steps {
   display: flex;
   border-top: 1px solid var(--border);

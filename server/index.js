@@ -13,7 +13,7 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Configuración de MySQL
+// Ajustes iniciales para evitar errores de CORS
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
@@ -29,21 +29,21 @@ const pool = mysql.createPool({
 // RUTAS DE AUTENTICACIÓN
 // =======================
 
-// Registro
+// Registro de un nuevo usuario
 app.post('/api/register', async (req, res) => {
   const { username, password } = req.body;
   try {
-    // Verificar si existe el usuario
+    // Verificación de disponibilidad del nombre de usuario
     const [existingUsers] = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
     if (existingUsers.length > 0) {
       return res.status(400).json({ error: 'El nombre de usuario ya está en uso' });
     }
     
-    // Hashear la contraseña (cifrado por seguridad)
+    // Encriptación de contraseña por seguridad
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     
-    // Insertar usuario
+    // Inserción de usuario en la base de datos
     const [result] = await pool.query(
       'INSERT INTO users (username, password) VALUES (?, ?)',
       [username, hashedPassword]
@@ -56,7 +56,7 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
-// Login
+// Inicio de sesión (Login)
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -65,13 +65,13 @@ app.post('/api/login', async (req, res) => {
       return res.status(401).json({ error: 'Credenciales inválidas' });
     }
     
-    // Validar contraseña cifrada
+    // Comparación de contraseña ingresada con el hash de la base de datos
     const isMatch = await bcrypt.compare(password, users[0].password);
     if (!isMatch) {
       return res.status(401).json({ error: 'Credenciales inválidas' });
     }
     
-    // Devolvemos los datos básicos del usuario
+    // Retorno de datos básicos en caso de éxito
     res.json({ id: users[0].id, username: users[0].username });
   } catch (error) {
     console.error('Error en login:', error);
@@ -83,7 +83,7 @@ app.post('/api/login', async (req, res) => {
 // RUTAS DE CÁLCULOS
 // =======================
 
-// GET /api/calculos - Obtener el historial (ahora por usuario)
+// Obtención del historial de cálculos por usuario
 app.get('/api/calculos', async (req, res) => {
   const userId = req.query.user_id;
   try {
@@ -100,7 +100,7 @@ app.get('/api/calculos', async (req, res) => {
   }
 });
 
-// POST /api/calculos - Guardar un nuevo cálculo asignado a un usuario
+// Registro de un nuevo cálculo en la base de datos
 app.post('/api/calculos', async (req, res) => {
   const { user_id, kwh, gallons, gas = 0, waste = 0, flights = 0, total_emissions, trees_needed, date } = req.body;
   try {

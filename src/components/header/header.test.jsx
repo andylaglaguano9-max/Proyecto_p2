@@ -3,7 +3,9 @@ import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { describe, it, expect, vi } from 'vitest';
 import Header from './header';
 
+// Suite de pruebas para el componente Header
 describe('Header Component', () => {
+  // Verificación del renderizado del título del encabezado
   it('renders the header title via props', () => {
     render(
       <BrowserRouter>
@@ -13,6 +15,7 @@ describe('Header Component', () => {
     expect(screen.getByText(/EcoTest/i)).toBeInTheDocument();
   });
 
+  // Comprobación de enlaces de navegación según estado de autenticación
   it('renders navigation links depending on auth state', () => {
     const { rerender } = render(
       <MemoryRouter>
@@ -23,7 +26,7 @@ describe('Header Component', () => {
     expect(screen.queryByText(/Calculadora/i)).not.toBeInTheDocument();
     expect(screen.getByText(/Iniciar Sesión/i)).toBeInTheDocument();
 
-    // With user
+    // Simulación de navegación con usuario autenticado
     rerender(
       <MemoryRouter>
         <Header title="EcoMetrics" user={{ username: 'testuser' }} setAuth={vi.fn()} />

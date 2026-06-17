@@ -3,16 +3,19 @@ import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../../services/auth-service';
 import styles from './login.module.css';
 
+// Componente de inicio de sesión de la aplicación
 const Login = ({ setAuth }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  // Manejo del envío del formulario de credenciales
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     try {
+      // Petición al servidor y asignación de la sesión activa
       const user = await loginUser(username, password);
       setAuth(user);
       navigate('/calculadora');

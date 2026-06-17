@@ -5,8 +5,8 @@ import { logoutUser } from '../../services/auth-service';
 import styles from './header.module.css';
 
 /**
- * Componente Header (Estudiante A)
- * Incluye el Navbar para navegar por la SPA.
+ * Componente principal de encabezado (Estudiante A)
+ * Barra de navegación principal de la aplicación SPA
  */
 const Header = ({ title, user, setAuth }) => {
   const navigate = useNavigate();
