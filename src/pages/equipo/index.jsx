@@ -6,22 +6,28 @@ import styles from './equipo.module.css';
 const Equipo = () => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Nuestro Equipo</h1>
-      <p className={styles.subtitle}>Conoce a los desarrolladores detrás de EcoMetrics</p>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Nuestro Equipo</h1>
+        <p className={styles.subtitle}>Las mentes creativas detrás de EcoMetrics</p>
+      </div>
       
       <div className={styles.grid}>
         <div className={styles.card}>
-          <div className={styles.avatar}>A</div>
-          <h2>Estudiante A</h2>
-          <p className={styles.role}>Estructura y Diseño</p>
-          <p>Encargado(a) del desarrollo de componentes base (Header, Footer, Layout) y las vistas estáticas con CSS Modules.</p>
+          <div className={styles.avatarWrapper}>
+            <div className={styles.avatar}>AL</div>
+          </div>
+          <h2>Andy Laglaguano</h2>
+          <div className={styles.badge}>Frontend & Diseño</div>
+          <p className={styles.description}>Especialista en UI/UX y maquetación interactiva. Creador de la experiencia visual y los componentes dinámicos con React.</p>
         </div>
         
         <div className={styles.card}>
-          <div className={styles.avatar}>B</div>
-          <h2>Estudiante B</h2>
-          <p className={styles.role}>Lógica y Datos</p>
-          <p>Encargado(a) del enrutamiento, formularios interactivos, servicios asíncronos y almacenamiento de datos.</p>
+          <div className={styles.avatarWrapper}>
+            <div className={styles.avatar}>EL</div>
+          </div>
+          <h2>Esteban Larco</h2>
+          <div className={styles.badge}>Backend & Datos</div>
+          <p className={styles.description}>Arquitecto de bases de datos y lógica de servidor. Responsable de la integración con PostgreSQL y despliegue del API.</p>
         </div>
       </div>
     </div>
