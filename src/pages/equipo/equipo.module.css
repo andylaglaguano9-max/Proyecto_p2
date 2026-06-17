@@ -81,6 +81,15 @@
   box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
 }
 
+.avatarImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 3px solid white;
+}
+
 .card h2 {
   color: var(--text-color);
   font-size: 1.8rem;

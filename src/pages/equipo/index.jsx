@@ -14,7 +14,8 @@ const Equipo = () => {
       <div className={styles.grid}>
         <div className={styles.card}>
           <div className={styles.avatarWrapper}>
-            <div className={styles.avatar}>AL</div>
+            <img src="/andy.jpg" alt="Andy Laglaguano" className={styles.avatarImage} onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='flex'}} />
+            <div className={styles.avatar} style={{display: 'none'}}>AL</div>
           </div>
           <h2>Andy Laglaguano</h2>
           <div className={styles.badge}>Frontend & Diseño</div>
@@ -23,7 +24,8 @@ const Equipo = () => {
         
         <div className={styles.card}>
           <div className={styles.avatarWrapper}>
-            <div className={styles.avatar}>EL</div>
+            <img src="/larco.jpg" alt="Esteban Larco" className={styles.avatarImage} onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='flex'}} />
+            <div className={styles.avatar} style={{display: 'none'}}>EL</div>
           </div>
           <h2>Esteban Larco</h2>
           <div className={styles.badge}>Backend & Datos</div>
