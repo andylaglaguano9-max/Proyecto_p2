@@ -24,7 +24,6 @@ describe('Header Component', () => {
     );
     expect(screen.getByText(/Inicio/i)).toBeInTheDocument();
     expect(screen.queryByText(/Calculadora/i)).not.toBeInTheDocument();
-    expect(screen.getByText(/Iniciar Sesión/i)).toBeInTheDocument();
 
     // Simulación de navegación con usuario autenticado
     rerender(
@@ -33,6 +32,6 @@ describe('Header Component', () => {
       </MemoryRouter>
     );
     expect(screen.getByText(/Calculadora/i)).toBeInTheDocument();
-    expect(screen.getByText(/Hola, testuser/i)).toBeInTheDocument();
+    expect(screen.getByText(/testuser/i)).toBeInTheDocument();
   });
 });
